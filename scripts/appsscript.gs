@@ -64,8 +64,11 @@ function doPost(e) {
       }
     }
     
-  } else {
+  } else if (contents.message && contents.message.text) {
     text = contents.message.text.trim();
+
+  } else {
+    sendText(chat_id, getLocalString("errorMessageType"));
   }
 
   try {
